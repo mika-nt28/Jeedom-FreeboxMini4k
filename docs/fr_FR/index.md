@@ -6,14 +6,14 @@ Installation
 ============
 Apres l'installation des dependances du plugin allez sur votre freebox mini 4K et faite ces etapes:
 
-# - paramètres
-# - À propos
-# - Appuyer sur OK 8 fois sur la ligne Build (passage en mode développeur)
-# - paramètres
-# - Options pour les développeurs (Dernière options de la 2ème ligne)
-# - Débogage
-# - Débogage USB
-# - Activé
+* paramètres
+* À propos
+* Appuyer sur OK 8 fois sur la ligne Build (passage en mode développeur)
+* paramètres
+* Options pour les développeurs (Dernière options de la 2ème ligne)
+* Débogage
+* Débogage USB
+* Activé
 
 Configuration
 =============
