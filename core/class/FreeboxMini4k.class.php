@@ -18,7 +18,7 @@ class FreeboxMini4k extends eqLogic {
 		}
 		return $Commande;
 	}
-	public function preSave() {	
+	public function postSave() {	
 		$ActionPower=$this->AddCommande('Power','power',"action",'other','Freebox_Tv');
 		$InfoPower=$this->AddCommande(' Statut Power','powerstat',"info",'binary','Freebox_Tv');
 		$ActionPower->setValue($InfoPower->getId());
