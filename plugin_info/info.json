@@ -1,0 +1,15 @@
+{
+	"id" : "FreeboxMini4k",
+	"name" : "Télécommande Freebox mini4K",
+	"description" : "Télécommande pour votre Freebox mini4K",
+	"licence" : "AGPL",
+	"author" : "Halbout Michael",
+	"require" : "3.0",
+	"category" : "monitoring",
+	"compatibility" : ["miniplus","smart","rpi","docker","diy","mobile"],
+	"hasOwnDeamon" : false,
+	"hasDependency" : true,
+	"issue" : "https://github.com/mika-nt28/Jeedom-FreeboxMini4k/issues",
+ 	"changelog" : "https://github.com/mika-nt28/Jeedom-FreeboxMini4k/commits/stable",
+ 	"documentation" : "http://mika-nt28.github.io/Jeedom-FreeboxMini4k/"
+}
