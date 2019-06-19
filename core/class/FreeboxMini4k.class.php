@@ -3,8 +3,7 @@ require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
 class FreeboxMini4k extends eqLogic {	
 	public function AddCommande($Name,$_logicalId,$Type="info", $SubType='binary', $Template='', $unite='') {
 		$Commande = $this->getCmd(null,$_logicalId);
-		if (!is_object($Commande))
-		{
+		if (!is_object($Commande)){
 			$Commande = new FreeboxMini4kCmd();
 			$Commande->setId(null);
 			$Commande->setLogicalId($_logicalId);
@@ -20,40 +19,39 @@ class FreeboxMini4k extends eqLogic {
 		return $Commande;
 	}
 	public function preSave() {	
-				$ActionPower=$this->AddCommande('Power','power',"action",'other','Freebox_Tv');
-				$InfoPower=$this->AddCommande(' Statut Power','powerstat',"info",'binary','Freebox_Tv');
-				$ActionPower->setValue($InfoPower->getId());
-				$ActionPower->save();
-				$this->AddCommande('Volume +','vol_inc',"action",'other','Freebox_Tv');
-				$this->AddCommande('Volume -','vol_dec',"action",'other','Freebox_Tv');
-				$this->AddCommande('Programme +','prgm_inc',"action",'other','Freebox_Tv');
-				$this->AddCommande('Programme -','prgm_dec',"action",'other','Freebox_Tv');
-				$this->AddCommande('Home','home',"action",'other','Freebox_Tv');
-				$this->AddCommande('Mute','mute',"action",'other','Freebox_Tv');
-				$this->AddCommande('Enregister','rec',"action",'other','Freebox_Tv');
-				$this->AddCommande('1','1',"action",'other','Freebox_Tv');
-				$this->AddCommande('2','2',"action",'other','Freebox_Tv');
-				$this->AddCommande('3','3',"action",'other','Freebox_Tv');
-				$this->AddCommande('4','4',"action",'other','Freebox_Tv');
-				$this->AddCommande('5','5',"action",'other','Freebox_Tv');
-				$this->AddCommande('6','6',"action",'other','Freebox_Tv');
-				$this->AddCommande('7','7',"action",'other','Freebox_Tv');
-				$this->AddCommande('8','8',"action",'other','Freebox_Tv');
-				$this->AddCommande('9','9',"action",'other','Freebox_Tv');
-				$this->AddCommande('0','0',"action",'other','Freebox_Tv');
-				$this->AddCommande('Precedent','prev',"action",'other','Freebox_Tv');
-				$this->AddCommande('Lecture','play',"action",'other','Freebox_Tv');
-				$this->AddCommande('Suivant','next',"action",'other','Freebox_Tv');
-				$this->AddCommande('Rouge','red',"action",'other','Freebox_Tv');
-				$this->AddCommande('Vert','green',"action",'other','Freebox_Tv');
-				$this->AddCommande('Bleu','blue',"action",'other','Freebox_Tv');
-				$this->AddCommande('Jaune','yellow',"action",'other','Freebox_Tv');
-				$this->AddCommande('Ok','ok',"action",'other','Freebox_Tv');
-				$this->AddCommande('Haut','up',"action",'other','Freebox_Tv');
-				$this->AddCommande('Bas','down',"action",'other','Freebox_Tv');
-				$this->AddCommande('Gauche','left',"action",'other','Freebox_Tv');
-				$this->AddCommande('Droite','right',"action",'other','Freebox_Tv');
-		
+		$ActionPower=$this->AddCommande('Power','power',"action",'other','Freebox_Tv');
+		$InfoPower=$this->AddCommande(' Statut Power','powerstat',"info",'binary','Freebox_Tv');
+		$ActionPower->setValue($InfoPower->getId());
+		$ActionPower->save();
+		$this->AddCommande('Volume +','vol_inc',"action",'other','Freebox_Tv');
+		$this->AddCommande('Volume -','vol_dec',"action",'other','Freebox_Tv');
+		$this->AddCommande('Programme +','prgm_inc',"action",'other','Freebox_Tv');
+		$this->AddCommande('Programme -','prgm_dec',"action",'other','Freebox_Tv');
+		$this->AddCommande('Home','home',"action",'other','Freebox_Tv');
+		$this->AddCommande('Mute','mute',"action",'other','Freebox_Tv');
+		$this->AddCommande('Enregister','rec',"action",'other','Freebox_Tv');
+		$this->AddCommande('1','1',"action",'other','Freebox_Tv');
+		$this->AddCommande('2','2',"action",'other','Freebox_Tv');
+		$this->AddCommande('3','3',"action",'other','Freebox_Tv');
+		$this->AddCommande('4','4',"action",'other','Freebox_Tv');
+		$this->AddCommande('5','5',"action",'other','Freebox_Tv');
+		$this->AddCommande('6','6',"action",'other','Freebox_Tv');
+		$this->AddCommande('7','7',"action",'other','Freebox_Tv');
+		$this->AddCommande('8','8',"action",'other','Freebox_Tv');
+		$this->AddCommande('9','9',"action",'other','Freebox_Tv');
+		$this->AddCommande('0','0',"action",'other','Freebox_Tv');
+		$this->AddCommande('Precedent','prev',"action",'other','Freebox_Tv');
+		$this->AddCommande('Lecture','play',"action",'other','Freebox_Tv');
+		$this->AddCommande('Suivant','next',"action",'other','Freebox_Tv');
+		$this->AddCommande('Rouge','red',"action",'other','Freebox_Tv');
+		$this->AddCommande('Vert','green',"action",'other','Freebox_Tv');
+		$this->AddCommande('Bleu','blue',"action",'other','Freebox_Tv');
+		$this->AddCommande('Jaune','yellow',"action",'other','Freebox_Tv');
+		$this->AddCommande('Ok','ok',"action",'other','Freebox_Tv');
+		$this->AddCommande('Haut','up',"action",'other','Freebox_Tv');
+		$this->AddCommande('Bas','down',"action",'other','Freebox_Tv');
+		$this->AddCommande('Gauche','left',"action",'other','Freebox_Tv');
+		$this->AddCommande('Droite','right',"action",'other','Freebox_Tv');		
 	}
 	public static function dependancy_info() {
 		$return = array();
@@ -75,7 +73,8 @@ class FreeboxMini4k extends eqLogic {
 		exec($cmd);
 	}
 	public static function cron() {
-		$this->getCmd('info','powerstat')->execute();
+		foreach(eqLogic::byType('FreeboxMini4k') as $FreeboxMini4k)
+			$FreeboxMini4k->getCmd('info','powerstat')->execute();
 	}
 }
 class FreeboxMini4kCmd extends cmd {
