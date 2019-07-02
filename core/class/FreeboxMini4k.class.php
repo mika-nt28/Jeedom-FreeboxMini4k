@@ -72,10 +72,12 @@ class FreeboxMini4k extends eqLogic {
 		$cmd .= ' >> ' . log::getPathToLog('FreeboxMini4k_update') . ' 2>&1 &';
 		exec($cmd);
 	}
-	public static function cron() {
-		foreach(eqLogic::byType('FreeboxMini4k') as $FreeboxMini4k)
-			$FreeboxMini4k->getCmd('info','powerstat')->execute();
-	}
+	/*public static function cron() {
+		foreach(eqLogic::byType('FreeboxMini4k') as $FreeboxMini4k){
+			if($FreeboxMini4k->getIsEnable())
+				$FreeboxMini4k->getCmd('info','powerstat')->execute();
+		}
+	}*/
 }
 class FreeboxMini4kCmd extends cmd {
 	public function execute($_options = array()){		
