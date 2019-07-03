@@ -1,6 +1,22 @@
 <?php
 require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
 class FreeboxMini4k extends eqLogic {	
+	public function toHtml($_version = 'mobile') {
+		$replace = $this->preToHtml($_version);
+		if (!is_array($replace)) {
+			return $replace;
+		}
+		$version = jeedom::versionAlias($_version);
+		if ($this->getDisplay('hideOn' . $version) == 1) {
+			return '';
+		}
+		$replace['#cmd#']='';
+		foreach ($this->getCmd(null, null, true) as $cmd) {
+			if($cmd->getIsVisible())	
+			$replace['#'.$cmd->getLogicalId().'#'] = $cmd->toHtml($_version);
+		}
+		return $this->postToHtml($_version, template_replace($replace, getTemplate('core', $version, 'Freebox_Tv', 'FreeboxMini4k')));
+	}
 	public function AddCommande($Name,$_logicalId,$Type="info", $SubType='binary', $Template='', $unite='') {
 		$Commande = $this->getCmd(null,$_logicalId);
 		if (!is_object($Commande)){
@@ -72,12 +88,12 @@ class FreeboxMini4k extends eqLogic {
 		$cmd .= ' >> ' . log::getPathToLog('FreeboxMini4k_update') . ' 2>&1 &';
 		exec($cmd);
 	}
-	/*public static function cron() {
+	public static function cron() {
 		foreach(eqLogic::byType('FreeboxMini4k') as $FreeboxMini4k){
 			if($FreeboxMini4k->getIsEnable())
 				$FreeboxMini4k->getCmd('info','powerstat')->execute();
 		}
-	}*/
+	}
 }
 class FreeboxMini4kCmd extends cmd {
 	public function execute($_options = array()){		
