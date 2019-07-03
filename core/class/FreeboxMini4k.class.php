@@ -15,9 +15,9 @@ class FreeboxMini4k extends eqLogic {
 			if($cmd->getIsVisible())	
 			$replace['#'.$cmd->getLogicalId().'#'] = $cmd->toHtml($_version);
 		}
-		return $this->postToHtml($_version, template_replace($replace, getTemplate('core', $version, 'Freebox_Tv', 'FreeboxMini4k')));
+		return $this->postToHtml($_version, template_replace($replace, getTemplate('core', $version, 'FreeboxTv', 'FreeboxMini4k')));
 	}
-	public function AddCommande($Name,$_logicalId,$Type="info", $SubType='binary', $Template='', $unite='') {
+	public function AddCommande($Name,$_logicalId,$Type="info", $SubType='binary', $Template='default', $unite='') {
 		$Commande = $this->getCmd(null,$_logicalId);
 		if (!is_object($Commande)){
 			$Commande = new FreeboxMini4kCmd();
