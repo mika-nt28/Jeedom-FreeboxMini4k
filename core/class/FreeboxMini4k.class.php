@@ -110,7 +110,7 @@ class FreeboxMini4k extends eqLogic {
 		$this->AddCommande('Programme -','prgm_dec',"action",'other','Freebox_Tv');
 		$this->AddCommande('Home','home',"action",'other','Freebox_Tv');
 		$this->AddCommande('Mute','mute',"action",'other','Freebox_Tv');
-		$this->AddCommande('Enregister','rec',"action",'other','Freebox_Tv');
+		$this->AddCommande('Enregistrer','rec',"action",'other','Freebox_Tv');
 		$this->AddCommande('1','1',"action",'other','Freebox_Tv');
 		$this->AddCommande('2','2',"action",'other','Freebox_Tv');
 		$this->AddCommande('3','3',"action",'other','Freebox_Tv');
@@ -144,13 +144,15 @@ class FreeboxMini4kCmd extends cmd {
 				log::add('FreeboxMini4k','debug','Etat du player freebox '.$this->getEqLogic()->getConfiguration('FREEBOX_TV_IP').' '.$result);
 			break;
 			case 'power':
-				$result=exec('sudo '.dirname(__FILE__) .'/../../ressources/mini4k_cmd '.$this->getEqLogic()->getConfiguration('FREEBOX_TV_IP').' '.$this->getLogicalId());
-				log::add('FreeboxMini4k','debug', 'Mini 4K : sudo '.dirname(__FILE__) .'/../../ressources/mini4k_cmd '.$this->getEqLogic()->getConfiguration('FREEBOX_TV_IP').' '.$this->getLogicalId());
+				$cmd = 'sudo '.dirname(__FILE__) .'/../../ressources/mini4k_cmd '.$this->getEqLogic()->getConfiguration('FREEBOX_TV_IP').' '.$this->getLogicalId();
+				$result=exec($cmd);
+				log::add('FreeboxMini4k','debug', 'Mini 4K : ',$cmd);
 				$this->getEqLogic()->getCmd('info','powerstat')->execute();
 			break;
 			default:
-				$result=exec('sudo '.dirname(__FILE__) .'/../../ressources/mini4k_cmd '.$this->getEqLogic()->getConfiguration('FREEBOX_TV_IP').' '.$this->getLogicalId());
-				log::add('FreeboxMini4k','debug', 'Mini 4K : sudo '.dirname(__FILE__) .'/../../ressources/mini4k_cmd '.$this->getEqLogic()->getConfiguration('FREEBOX_TV_IP').' '.$this->getLogicalId());
+				$cmd = 'sudo '.dirname(__FILE__) .'/../../ressources/mini4k_cmd '.$this->getEqLogic()->getConfiguration('FREEBOX_TV_IP').' '.$this->getLogicalId();
+				$result=exec($cmd);
+				log::add('FreeboxMini4k','debug', 'Mini 4K : ',$cmd);
 			break;
 		}
 	}
