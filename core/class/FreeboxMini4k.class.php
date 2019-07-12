@@ -1,6 +1,71 @@
 <?php
 require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
 class FreeboxMini4k extends eqLogic {	
+	public static function deamon_info() {
+		$return = array();
+		$return['log'] = 'FreeboxMini4k';
+		$return['launchable'] = 'ok';
+		$return['state'] = 'nok';
+		$cron = cron::byClassAndFunction('FreeboxMini4k', 'pull');
+		if (!is_object($cron))	
+			return $return;
+		$return['state'] = 'ok';
+		return $return;
+	}
+	public static function deamon_start($_debug = false) {
+		log::remove('FreeboxMini4k');
+		self::deamon_stop();
+		$deamon_info = self::deamon_info();
+		if ($deamon_info['launchable'] != 'ok') 
+			return;
+		if ($deamon_info['state'] == 'ok') 
+			return;
+		$cron =cron::byClassAndFunction('FreeboxMini4k', 'pull');
+		if (!is_object($cron)) {
+			$cron = new cron();
+			$cron->setClass('FreeboxMini4k');
+			$cron->setFunction('pull');
+			$cron->setEnable(1);
+			$cron->setDeamon(1);
+			$cron->setTimeout('999999');
+			$cron->setSchedule('* * * * * *');
+			$cron->save();
+		}
+		$cron->start();
+	}
+	public static function deamon_stop() {	
+		$cron = cron::byClassAndFunction('FreeboxMini4k', 'pull');
+		if(is_object($cron))	
+			$cron->remove();
+	}
+	
+	public static function dependancy_info() {
+		$return = array();
+		$return['log'] = 'FreeboxMini4k_update';
+		$return['progress_file'] = '/tmp/compilation_FreeboxMini4k_in_progress';
+		if (exec('dpkg -s netcat | grep -c "Status: install"') ==1)
+				$return['state'] = 'ok';
+		else
+			$return['state'] = 'nok';
+		return $return;
+	}
+	public static function dependancy_install() {
+		if (file_exists('/tmp/compilation_FreeboxMini4k_in_progress')) {
+			return;
+		}
+		log::remove('FreeboxMini4k_update');
+		$cmd = 'sudo /bin/bash ' . dirname(__FILE__) . '/../../ressources/install.sh';
+		$cmd .= ' >> ' . log::getPathToLog('FreeboxMini4k_update') . ' 2>&1 &';
+		exec($cmd);
+	}
+	public static function pull() {
+		while(true){
+			foreach(eqLogic::byType('FreeboxMini4k') as $FreeboxMini4k){
+				if($FreeboxMini4k->getIsEnable())
+					$FreeboxMini4k->getCmd('info','powerstat')->execute();
+			}
+		}
+	}
 	public function toHtml($_version = 'mobile') {
 		$replace = $this->preToHtml($_version);
 		if (!is_array($replace)) {
@@ -68,31 +133,6 @@ class FreeboxMini4k extends eqLogic {
 		$this->AddCommande('Bas','down',"action",'other','Freebox_Tv');
 		$this->AddCommande('Gauche','left',"action",'other','Freebox_Tv');
 		$this->AddCommande('Droite','right',"action",'other','Freebox_Tv');		
-	}
-	public static function dependancy_info() {
-		$return = array();
-		$return['log'] = 'FreeboxMini4k_update';
-		$return['progress_file'] = '/tmp/compilation_FreeboxMini4k_in_progress';
-		if (exec('dpkg -s netcat | grep -c "Status: install"') ==1)
-				$return['state'] = 'ok';
-		else
-			$return['state'] = 'nok';
-		return $return;
-	}
-	public static function dependancy_install() {
-		if (file_exists('/tmp/compilation_FreeboxMini4k_in_progress')) {
-			return;
-		}
-		log::remove('FreeboxMini4k_update');
-		$cmd = 'sudo /bin/bash ' . dirname(__FILE__) . '/../../ressources/install.sh';
-		$cmd .= ' >> ' . log::getPathToLog('FreeboxMini4k_update') . ' 2>&1 &';
-		exec($cmd);
-	}
-	public static function cron() {
-		foreach(eqLogic::byType('FreeboxMini4k') as $FreeboxMini4k){
-			if($FreeboxMini4k->getIsEnable())
-				$FreeboxMini4k->getCmd('info','powerstat')->execute();
-		}
 	}
 }
 class FreeboxMini4kCmd extends cmd {
