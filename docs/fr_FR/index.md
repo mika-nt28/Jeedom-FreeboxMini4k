@@ -1,15 +1,15 @@
 Description
 ==========
-Controler votre freebox mini4K
+Contrôler votre Freebox mini4K
 
 Installation
 ============
-Apres l'installation des dependances du plugin allez sur votre freebox mini 4K et faite ces etapes:
+Après l'installation des dépendances du plugin, allez sur l'interface de votre Freebox mini 4K et faites ces étapes :
 
-* paramètres
+* Paramètres
 * À propos
 * Appuyer sur OK 8 fois sur la ligne Build (passage en mode développeur)
-* paramètres
+* Paramètres
 * Options pour les développeurs (Dernière options de la 2ème ligne)
 * Débogage
 * Débogage USB
@@ -18,7 +18,7 @@ Apres l'installation des dependances du plugin allez sur votre freebox mini 4K e
 Configuration
 =============
 
-Rendez vous sur la page de configuration de la telecommande Freebox mini 4k
-Ajouter une telecommande
-Saisir l'ip de la mini 4k (Avoir fait avant ou apres l'etape d'installation
-A la sauvegarde le plugin vas cree toute les comandes de votre freebox
+Rendez vous sur la page de configuration de la télécommande Freebox mini 4k.
+Ajouter une télécommande.
+Saisir l'adresse IP de la mini 4k (avoir fait avant ou après l’étape d'installation).
+A la sauvegarde, le plugin va créer toutes les commandes de votre Freebox.
