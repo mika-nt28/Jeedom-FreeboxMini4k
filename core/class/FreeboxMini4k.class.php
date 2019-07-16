@@ -32,6 +32,7 @@ class FreeboxMini4k extends eqLogic {
 			$cron->save();
 		}
 		$cron->start();
+		$cron->run();
 	}
 	public static function deamon_stop() {	
 		$cron = cron::byClassAndFunction('FreeboxMini4k', 'pull');
