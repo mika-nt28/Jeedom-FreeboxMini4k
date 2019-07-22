@@ -9,6 +9,9 @@ class FreeboxMini4k extends eqLogic {
 		$cron = cron::byClassAndFunction('FreeboxMini4k', 'pull');
 		if (!is_object($cron))	
 			return $return;
+		if (!$cron->running())	
+			return $return;
+		$return['state'] = 'ok';
 		$return['state'] = 'ok';
 		return $return;
 	}
@@ -65,7 +68,9 @@ class FreeboxMini4k extends eqLogic {
 				if($FreeboxMini4k->getIsEnable())
 					$FreeboxMini4k->getCmd('info','powerstat')->execute();
 			}
+			sleep(config::byKey('DemonSleep','FreeboxMini4k'));
 		}
+		self::deamon_stop();
 	}
 	public function toHtml($_version = 'mobile') {
 		$replace = $this->preToHtml($_version);
