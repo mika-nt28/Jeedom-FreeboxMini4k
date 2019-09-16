@@ -2,9 +2,9 @@
     <a class="btn btn-sm action cmdName tooltips iconCmd#id#"></a>
    <script>
 		if ("#state#" == "1") {
-			$(".iconCmd#id#").css('background-color', '#C42833');
+			$(".iconCmd#id#").css('background-color', 'red', 'important');
 		} else {
-			$(".iconCmd#id#").css('background-color', 'transparent');
+			$(".iconCmd#id#").css('background-color', 'transparent', 'important');
 		}
 	$(".cmd[data-cmd_id=#id#] .action").off();
 	$(".cmd[data-cmd_id=#id#] .action").on("click", function() {
@@ -19,14 +19,14 @@
 		break;
 		case 'red':
 			$('.iconCmd#id#').append('<img src="plugins/FreeboxMini4k/core/template/images/red.png" width="20px"/>');
-			$('.iconCmd#id#').css('background-color', '#C42833');
+			$('.iconCmd#id#').css('background-color', 'red', 'important');
 		break;
 		case 'up':
 			$('.iconCmd#id#').append('<img src="plugins/FreeboxMini4k/core/template/images/up.png" width="20px"/>');
 		break;
 		case 'blue':
 			$('.iconCmd#id#').append('<img src="plugins/FreeboxMini4k/core/template/images/blue.png" width="20px"/>');
-			$('.iconCmd#id#').css('background-color', '#2C5FBE');
+			$('.iconCmd#id#').css('background-color', 'blue', 'important');
 		break;
 		case '1':
 			$('.iconCmd#id#').text('1');
@@ -84,14 +84,14 @@
 		break;
 		case 'green':
 			$('.iconCmd#id#').append('<img src="plugins/FreeboxMini4k/core/template/images/green.png" width="20px"/>');
-			$('.iconCmd#id#').css('background-color', '#1F8D15');
+			$('.iconCmd#id#').css('background-color', 'green', 'important');
 		break;
 		case 'down':
 			$('.iconCmd#id#').append('<img src="plugins/FreeboxMini4k/core/template/images/down.png" width="20px"/>');
 		break;
 		case 'yellow':
 			$('.iconCmd#id#').append('<img src="plugins/FreeboxMini4k/core/template/images/yellow.png" width="20px"/>');
-			$('.iconCmd#id#').css('background-color', '#E3EC2E');
+			$('.iconCmd#id#').css('background-color', 'yellow', 'important');
 		break;
 		case 'play':
 			$('.iconCmd#id#').append('<img src="plugins/FreeboxMini4k/core/template/images/play_pause.png" width="20px"/>');
