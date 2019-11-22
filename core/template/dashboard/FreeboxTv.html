@@ -1,8 +1,4 @@
-<div class="eqLogic eqLogic-widget allowResize" data-eqLogic_id="#id#" data-eqLogic_uid="#uid#" data-version="#version#" style="min-width : 50px;min-height : 80px ;border:#border#;border-radius:#border-radius#;background-color: #background-color#;color: #color#;width: #width#;height: #height#;#style#" >
-	<span class="statusCmd" style="position : absolute;bottom : 3px;left : 3px;width : 30px;color: #404040 ;z-index: 1030;"></span>
-	<center class="widget-name">
-		<span style="font-weight:bold;"><a href="#eqLink#">#name#</a></span>
-	</center>			
+<div class="eqLogic eqLogic-widget allowResize" data-eqType="#eqType#" data-translate-category="#translate_category#" data-category="#category#" data-tags="#tags#" data-eqLogic_id="#id#" data-eqLogic_uid="#uid#" data-version="#version#" style="min-width : 50px;min-height : 80px ;border:#border#;border-radius:#border-radius#;background-color: #background-color#;color: #color#;width: #width#;height: #height#;#style#" >
 	<style>
 		.Freeboxtelecommande td{
 			text-align:center; 
@@ -10,76 +6,83 @@
 			border:0px;
 		}
 	</style>
-	<table class="Freeboxtelecommande" align="center">
-		<tr>
-			<td>AV</td>
-			<td></td>
-			<td>#power#</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td>#1#</td>
-			<td>#2#</td>
-			<td>#3#</td>
-		</tr>
-		<tr>
-			<td>#4#</td>
-			<td>#5#</td>
-			<td>#6#</td>
-		</tr>
-		<tr>
-			<td>#7#</td>
-			<td>#8#</td>
-			<td>#9#</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>#0#</td>
-			<td></td>
-		</tr>
-		<tr>
-			<td>#red#</td>
-			<td>#up#</td>
-			<td>#blue#</td>
-		</tr>
-		<tr>
-			<td>#left#</td>
-			<td action-id="ok">#ok#</td>
-			<td>#right#</td>
-		</tr>
-		<tr>
-			<td>#green#</td>
-			<td>#down#</td>
-			<td>#yellow#</td>
-		</tr>
-		<tr>
-			<td colspan="3">#home#</td>
-		</tr>
-		<tr>
-			<td class="IncDec">#vol_inc#</td>
-			<td>#mute#</td>
-			<td class="IncDec">#prgm_inc#</td>
-		</tr>
-		<tr>
-			<td>VOL</td>
-			<td></td>
-			<td>PROG</td>
-		</tr>
-		<tr>
-			<td class="IncDec">#vol_dec#</td>
-			<td action-id="rec">#rec#</td>
-			<td class="IncDec">#prgm_dec#</td>
-		</tr>
-		<tr>
-			<td>#prev#</td>
-			<td>#play#</td>
-			<td>#next#</td>
-		</tr>
-	</table>
-	</div>
+	<center class="widget-name">
+		<span style="font-size: 1.2em;#hideEqLogicName#"><a href="#eqLink#">#name_display# <span class="object_name">#object_name#</span></a></span>
+	</center>
+	<center>
+		<div class="Telecommande">
+			<table class="Freeboxtelecommande" align="center">
+				<tr>
+					<td>AV</td>
+					<td><span class="statusCmd"></span></td>
+					<td>#power#</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>#1#</td>
+					<td>#2#</td>
+					<td>#3#</td>
+				</tr>
+				<tr>
+					<td>#4#</td>
+					<td>#5#</td>
+					<td>#6#</td>
+				</tr>
+				<tr>
+					<td>#7#</td>
+					<td>#8#</td>
+					<td>#9#</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>#0#</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>#red#</td>
+					<td>#up#</td>
+					<td>#blue#</td>
+				</tr>
+				<tr>
+					<td>#left#</td>
+					<td action-id="ok">#ok#</td>
+					<td>#right#</td>
+				</tr>
+				<tr>
+					<td>#green#</td>
+					<td>#down#</td>
+					<td>#yellow#</td>
+				</tr>
+				<tr>
+					<td colspan="3">#home#</td>
+				</tr>
+				<tr>
+					<td class="IncDec">#vol_inc#</td>
+					<td>#mute#</td>
+					<td class="IncDec">#prgm_inc#</td>
+				</tr>
+				<tr>
+					<td>VOL</td>
+					<td></td>
+					<td>PROG</td>
+				</tr>
+				<tr>
+					<td class="IncDec">#vol_dec#</td>
+					<td action-id="rec">#rec#</td>
+					<td class="IncDec">#prgm_dec#</td>
+				</tr>
+				<tr>
+					<td>#prev#</td>
+					<td>#play#</td>
+					<td>#next#</td>
+				</tr>
+			</table>
+		</div>
+	</center>
+	<span class="statusCmd" style="position : absolute;left : 5px;bottom : 0px; width : 30px;z-index: 1030;"></span>
 </div>
 
