@@ -72,7 +72,7 @@ class FreeboxMini4k extends eqLogic {
 		}
 		self::deamon_stop();
 	}
-	public function toHtml($_version = 'mobile') {
+	public function toHtml($_version = 'dashboard') {
 		$replace = $this->preToHtml($_version);
 		if (!is_array($replace)) {
 			return $replace;
@@ -82,11 +82,9 @@ class FreeboxMini4k extends eqLogic {
 			return '';
 		}
 		$replace['#cmd#']='';
-		foreach ($this->getCmd(null, null, true) as $cmd) {
-			if($cmd->getIsVisible())	
+		foreach ($this->getCmd() as $cmd) 
 			$replace['#'.$cmd->getLogicalId().'#'] = $cmd->toHtml($_version);
-		}
-		return $this->postToHtml($_version, template_replace($replace, getTemplate('core', $version, 'FreeboxTv', 'FreeboxMini4k')));
+		return $this->postToHtml($_version, template_replace($replace, getTemplate('core', jeedom::versionAlias($version), 'FreeboxTv', 'FreeboxMini4k')));
 	}
 	public function AddCommande($Name,$_logicalId,$Type="info", $SubType='binary', $Template='default', $unite='') {
 		$Commande = $this->getCmd(null,$_logicalId);
