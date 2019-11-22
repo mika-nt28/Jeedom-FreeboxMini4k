@@ -1,110 +1,82 @@
-<span class="cmd" data-type="action" data-subtype="other" data-cmd_id="#id#" style="width:100%;height:100%;">
-    <a class="btn btn-sm btn-default action cmdName tooltips iconCmd#id#" title="" style="background-color:#576e84 !important;border-color : transparent !important;"></a>
-   <script>
-		if ("#state#" == "1") {
-			$(".iconCmd#id#").parent().parent().css('background-color', '#C42833');
-		} else {
-			$(".iconCmd#id#").parent().parent().css('background-color', 'transparent');
-		}
-	$(".cmd[data-cmd_id=#id#] .action").off();
-	$(".cmd[data-cmd_id=#id#] .action").on("click", function() {
-		jeedom.cmd.execute({id: "#id#"});
-	});
-	switch('#logicalId#'){
-		case 'home':
-			$('.iconCmd#id#').text('Free');
-		break;
-		case 'power':
-			$('.iconCmd#id#').append('<img src="plugins/FreeboxMini4k/core/template/images/power.png" width="20px"/>');
-		break;
-		case 'red':
-			$('.iconCmd#id#').append('<img src="plugins/FreeboxMini4k/core/template/images/red.png" width="20px"/>');
-			$('.iconCmd#id#').css('background-color', '#C42833');
-		break;
-		case 'up':
-			$('.iconCmd#id#').append('<img src="plugins/FreeboxMini4k/core/template/images/up.png" width="20px"/>');
-		break;
-		case 'blue':
-			$('.iconCmd#id#').append('<img src="plugins/FreeboxMini4k/core/template/images/blue.png" width="20px"/>');
-			$('.iconCmd#id#').css('background-color', '#2C5FBE');
-		break;
-		case '1':
-			$('.iconCmd#id#').text('1');
-		break;
-		case '2':
-			$('.iconCmd#id#').text('2');
-		break;
-		case '3':
-			$('.iconCmd#id#').text('3');
-		break;
-		case '4':
-			$('.iconCmd#id#').text('4');
-		break;
-		case '5':
-			$('.iconCmd#id#').text('5');
-		break;
-		case '6':
-			$('.iconCmd#id#').text('6');
-		break;
-		case '7':
-			$('.iconCmd#id#').text('7');
-		break;
-		case '8':
-			$('.iconCmd#id#').text('8');
-		break;
-		case '9':
-			$('.iconCmd#id#').text('9');
-		break;
-		case '0':
-			$('.iconCmd#id#').text('0');
-		break;
-		case 'vol_inc':
-			$('.iconCmd#id#').text('+');
-		break;
-		case 'vol_dec':
-			$('.iconCmd#id#').text('-');
-		break;
-		case 'prgm_inc':
-			$('.iconCmd#id#').text('+');
-		break;
-		case 'prgm_dec':
-			$('.iconCmd#id#').text('-');
-		break;
-		case 'mute':
-			$('.iconCmd#id#').append('<img src="plugins/FreeboxMini4k/core/template/images/mute.png" width="20px"/>');
-		break;
-		case 'left':
-			$('.iconCmd#id#').append('<img src="plugins/FreeboxMini4k/core/template/images/left.png" width="20px"/>');
-		break;
-		case 'right':
-			$('.iconCmd#id#').append('<img src="plugins/FreeboxMini4k/core/template/images/right.png" width="20px"/>');
-		break;
-		case 'ok':
-			$('.iconCmd#id#').text('OK');
-		break;
-		case 'green':
-			$('.iconCmd#id#').append('<img src="plugins/FreeboxMini4k/core/template/images/green.png" width="20px"/>');
-			$('.iconCmd#id#').css('background-color', '#1F8D15');
-		break;
-		case 'down':
-			$('.iconCmd#id#').append('<img src="plugins/FreeboxMini4k/core/template/images/down.png" width="20px"/>');
-		break;
-		case 'yellow':
-			$('.iconCmd#id#').append('<img src="plugins/FreeboxMini4k/core/template/images/yellow.png" width="20px"/>');
-			$('.iconCmd#id#').css('background-color', '#E3EC2E');
-		break;
-		case 'play':
-			$('.iconCmd#id#').append('<img src="plugins/FreeboxMini4k/core/template/images/play_pause.png" width="20px"/>');
-		break;
-		case 'prev':
-			$('.iconCmd#id#').append('<img src="plugins/FreeboxMini4k/core/template/images/previous.png" width="20px"/>');
-		break;
-		case 'next':
-			$('.iconCmd#id#').append('<img src="plugins/FreeboxMini4k/core/template/images/next.png" width="20px"/>');
-		break;
-		case 'rec':
-			$('.iconCmd#id#').append('<img src="plugins/FreeboxMini4k/core/template/images/rec.png" width="20px"/>');
-		break;
-	}
-	</script>
-</span>
+<div class="eqLogic eqLogic-widget allowResize" data-eqType="#eqType#" data-translate-category="#translate_category#" data-category="#category#" data-tags="#tags#" data-eqLogic_id="#id#" data-eqLogic_uid="#uid#" data-version="#version#" style="min-width : 50px;min-height : 80px ;border:#border#;border-radius:#border-radius#;background-color: #background-color#;color: #color#;width: #width#;height: #height#;#style#" >
+	<center class="widget-name">
+		<span style="font-size: 1.2em;#hideEqLogicName#"><a href="#eqLink#">#name_display# <span class="object_name">#object_name#</span></a></span>
+	</center>
+	<center>
+		<div class="Telecommande">
+			<table class="Freeboxtelecommande" align="center">
+				<tr>
+					<td>AV</td>
+					<td><span class="statusCmd"></span></td>
+					<td>#power#</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>#1#</td>
+					<td>#2#</td>
+					<td>#3#</td>
+				</tr>
+				<tr>
+					<td>#4#</td>
+					<td>#5#</td>
+					<td>#6#</td>
+				</tr>
+				<tr>
+					<td>#7#</td>
+					<td>#8#</td>
+					<td>#9#</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>#0#</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>#red#</td>
+					<td>#up#</td>
+					<td>#blue#</td>
+				</tr>
+				<tr>
+					<td>#left#</td>
+					<td action-id="ok">#ok#</td>
+					<td>#right#</td>
+				</tr>
+				<tr>
+					<td>#green#</td>
+					<td>#down#</td>
+					<td>#yellow#</td>
+				</tr>
+				<tr>
+					<td colspan="3">#home#</td>
+				</tr>
+				<tr>
+					<td class="IncDec">#vol_inc#</td>
+					<td>#mute#</td>
+					<td class="IncDec">#prgm_inc#</td>
+				</tr>
+				<tr>
+					<td>VOL</td>
+					<td></td>
+					<td>PROG</td>
+				</tr>
+				<tr>
+					<td class="IncDec">#vol_dec#</td>
+					<td action-id="rec">#rec#</td>
+					<td class="IncDec">#prgm_dec#</td>
+				</tr>
+				<tr>
+					<td>#prev#</td>
+					<td>#play#</td>
+					<td>#next#</td>
+				</tr>
+			</table>
+
+		</div>
+	</center>
+	<span class="statusCmd" style="position : absolute;left : 5px;bottom : 0px; width : 30px;z-index: 1030;"></span>
+</div>
+
