@@ -1,82 +1,116 @@
-<div class="eqLogic eqLogic-widget allowResize" data-eqType="#eqType#" data-translate-category="#translate_category#" data-category="#category#" data-tags="#tags#" data-eqLogic_id="#id#" data-eqLogic_uid="#uid#" data-version="#version#" style="min-width : 50px;min-height : 80px ;border:#border#;border-radius:#border-radius#;background-color: #background-color#;color: #color#;width: #width#;height: #height#;#style#" >
-	<center class="widget-name">
-		<span style="font-size: 1.2em;#hideEqLogicName#"><a href="#eqLink#">#name_display# <span class="object_name">#object_name#</span></a></span>
-	</center>
-	<center>
-		<div class="Telecommande">
-			<table class="Freeboxtelecommande" align="center">
-				<tr>
-					<td>AV</td>
-					<td><span class="statusCmd"></span></td>
-					<td>#power#</td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>#1#</td>
-					<td>#2#</td>
-					<td>#3#</td>
-				</tr>
-				<tr>
-					<td>#4#</td>
-					<td>#5#</td>
-					<td>#6#</td>
-				</tr>
-				<tr>
-					<td>#7#</td>
-					<td>#8#</td>
-					<td>#9#</td>
-				</tr>
-				<tr>
-					<td></td>
-					<td>#0#</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>#red#</td>
-					<td>#up#</td>
-					<td>#blue#</td>
-				</tr>
-				<tr>
-					<td>#left#</td>
-					<td action-id="ok">#ok#</td>
-					<td>#right#</td>
-				</tr>
-				<tr>
-					<td>#green#</td>
-					<td>#down#</td>
-					<td>#yellow#</td>
-				</tr>
-				<tr>
-					<td colspan="3">#home#</td>
-				</tr>
-				<tr>
-					<td class="IncDec">#vol_inc#</td>
-					<td>#mute#</td>
-					<td class="IncDec">#prgm_inc#</td>
-				</tr>
-				<tr>
-					<td>VOL</td>
-					<td></td>
-					<td>PROG</td>
-				</tr>
-				<tr>
-					<td class="IncDec">#vol_dec#</td>
-					<td action-id="rec">#rec#</td>
-					<td class="IncDec">#prgm_dec#</td>
-				</tr>
-				<tr>
-					<td>#prev#</td>
-					<td>#play#</td>
-					<td>#next#</td>
-				</tr>
-			</table>
-
-		</div>
-	</center>
-	<span class="statusCmd" style="position : absolute;left : 5px;bottom : 0px; width : 30px;z-index: 1030;"></span>
+<div class="cmd tooltips cmd-widget cursor #history#" data-type="info" data-subtype="binary" data-cmd_id="#id#" data-cmd_uid="#uid#" data-version="#version#" style="min-width:20px;">
+	<div class="content-sm">
+		<span class="iconCmd"></span>
+	</div>
+	<script>
+		jeedom.cmd.update['#id#'] =function(_options){
+			var cmd = $('.cmd[data-cmd_id=#id#]');
+			cmd.attr('title','Date de valeur : '+_options.valueDate+'<br/>Date de collecte : '+_options.collectDate)
+			if (_options.display_value == '1') {
+				cmd.find('.iconCmd').css('background-color', 'red', 'important');
+			} else {
+				cmd.find('.iconCmd').css('background-color', 'transparent', 'important');
+			}
+			switch('#logicalId#'){
+				case 'home':
+					cmd.find('.iconCmd').text('Free');
+				break;
+				case 'power':
+					cmd.find('.iconCmd').html('<img src="plugins/FreeboxMini4k/core/template/images/power.png" width="20px"/>');
+				break;
+				case 'red':
+					cmd.find('.iconCmd').html('<img src="plugins/FreeboxMini4k/core/template/images/red.png" width="20px"/>');
+					cmd.find('.iconCmd').css('background-color', 'red', 'important');
+				break;
+				case 'up':
+					cmd.find('.iconCmd').html('<img src="plugins/FreeboxMini4k/core/template/images/up.png" width="20px"/>');
+				break;
+				case 'blue':
+					cmd.find('.iconCmd').html('<img src="plugins/FreeboxMini4k/core/template/images/blue.png" width="20px"/>');
+					cmd.find('.iconCmd').css('background-color', 'blue', 'important');
+				break;
+				case '1':
+					cmd.find('.iconCmd').text('1');
+				break;
+				case '2':
+					cmd.find('.iconCmd').text('2');
+				break;
+				case '3':
+					cmd.find('.iconCmd').text('3');
+				break;
+				case '4':
+					cmd.find('.iconCmd').text('4');
+				break;
+				case '5':
+					cmd.find('.iconCmd').text('5');
+				break;
+				case '6':
+					cmd.find('.iconCmd').text('6');
+				break;
+				case '7':
+					cmd.find('.iconCmd').text('7');
+				break;
+				case '8':
+					cmd.find('.iconCmd').text('8');
+				break;
+				case '9':
+					cmd.find('.iconCmd').text('9');
+				break;
+				case '0':
+					cmd.find('.iconCmd').text('0');
+				break;
+				case 'vol_inc':
+					cmd.find('.iconCmd').text('+');
+				break;
+				case 'vol_dec':
+					cmd.find('.iconCmd').text('-');
+				break;
+				case 'prgm_inc':
+					cmd.find('.iconCmd').text('+');
+				break;
+				case 'prgm_dec':
+					cmd.find('.iconCmd').text('-');
+				break;
+				case 'mute':
+					cmd.find('.iconCmd').html('<img src="plugins/FreeboxMini4k/core/template/images/mute.png" width="20px"/>');
+				break;
+				case 'left':
+					cmd.find('.iconCmd').html('<img src="plugins/FreeboxMini4k/core/template/images/left.png" width="20px"/>');
+				break;
+				case 'right':
+					cmd.find('.iconCmd').html('<img src="plugins/FreeboxMini4k/core/template/images/right.png" width="20px"/>');
+				break;
+				case 'ok':
+					cmd.find('.iconCmd').text('OK');
+				break;
+				case 'green':
+					cmd.find('.iconCmd').html('<img src="plugins/FreeboxMini4k/core/template/images/green.png" width="20px"/>');
+					cmd.find('.iconCmd').css('background-color', 'green', 'important');
+				break;
+				case 'down':
+					cmd.find('.iconCmd').html('<img src="plugins/FreeboxMini4k/core/template/images/down.png" width="20px"/>');
+				break;
+				case 'yellow':
+					cmd.find('.iconCmd').html('<img src="plugins/FreeboxMini4k/core/template/images/yellow.png" width="20px"/>');
+					cmd.find('.iconCmd').css('background-color', 'yellow', 'important');
+				break;
+				case 'play':
+					cmd.find('.iconCmd').html('<img src="plugins/FreeboxMini4k/core/template/images/play_pause.png" width="20px"/>');
+				break;
+				case 'prev':
+					cmd.find('.iconCmd').html('<img src="plugins/FreeboxMini4k/core/template/images/previous.png" width="20px"/>');
+				break;
+				case 'next':
+					cmd.find('.iconCmd').html('<img src="plugins/FreeboxMini4k/core/template/images/next.png" width="20px"/>');
+				break;
+				case 'rec':
+					cmd.find('.iconCmd').html('<img src="plugins/FreeboxMini4k/core/template/images/rec.png" width="20px"/>');
+				break;
+			}
+		}
+		jeedom.cmd.update['#id#']({display_value:'#state#',valueDate:'#valueDate#',collectDate:'#collectDate#',alertLevel:'#alertLevel#'});
+		$(".cmd[data-cmd_id=#id#] .action").on("click", function() {
+			jeedom.cmd.execute({id: "#id#"});
+		});
+	</script>
 </div>
-
