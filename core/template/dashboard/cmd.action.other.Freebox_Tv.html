@@ -1,110 +1,116 @@
-<span class="cmd" data-type="action" data-subtype="other" data-cmd_id="#id#"">
-    <a class="btn btn-sm action cmdName tooltips iconCmd#id#"></a>
-   <script>
-		if ("#state#" == "1") {
-			$(".iconCmd#id#").css('background-color', 'red', 'important');
-		} else {
-			$(".iconCmd#id#").css('background-color', 'transparent', 'important');
+<div class="cmd tooltips cmd-widget cursor #history#" data-type="info" data-subtype="binary" data-cmd_id="#id#" data-cmd_uid="#uid#" data-version="#version#" style="min-width:20px;">
+	<div class="content-sm">
+		<span class="iconCmd"></span>
+	</div>
+	<script>
+		jeedom.cmd.update['#id#'] =function(_options){
+			var cmd = $('.cmd[data-cmd_id=#id#]');
+			cmd.attr('title','Date de valeur : '+_options.valueDate+'<br/>Date de collecte : '+_options.collectDate)
+			if (_options.display_value == '1') {
+				cmd.find('.iconCmd').css('background-color', 'red', 'important');
+			} else {
+				cmd.find('.iconCmd').css('background-color', 'transparent', 'important');
+			}
+			switch('#logicalId#'){
+				case 'home':
+					cmd.find('.iconCmd').text('Free');
+				break;
+				case 'power':
+					cmd.find('.iconCmd').html('<img src="plugins/FreeboxMini4k/core/template/images/power.png" width="20px"/>');
+				break;
+				case 'red':
+					cmd.find('.iconCmd').html('<img src="plugins/FreeboxMini4k/core/template/images/red.png" width="20px"/>');
+					cmd.find('.iconCmd').css('background-color', 'red', 'important');
+				break;
+				case 'up':
+					cmd.find('.iconCmd').html('<img src="plugins/FreeboxMini4k/core/template/images/up.png" width="20px"/>');
+				break;
+				case 'blue':
+					cmd.find('.iconCmd').html('<img src="plugins/FreeboxMini4k/core/template/images/blue.png" width="20px"/>');
+					cmd.find('.iconCmd').css('background-color', 'blue', 'important');
+				break;
+				case '1':
+					cmd.find('.iconCmd').text('1');
+				break;
+				case '2':
+					cmd.find('.iconCmd').text('2');
+				break;
+				case '3':
+					cmd.find('.iconCmd').text('3');
+				break;
+				case '4':
+					cmd.find('.iconCmd').text('4');
+				break;
+				case '5':
+					cmd.find('.iconCmd').text('5');
+				break;
+				case '6':
+					cmd.find('.iconCmd').text('6');
+				break;
+				case '7':
+					cmd.find('.iconCmd').text('7');
+				break;
+				case '8':
+					cmd.find('.iconCmd').text('8');
+				break;
+				case '9':
+					cmd.find('.iconCmd').text('9');
+				break;
+				case '0':
+					cmd.find('.iconCmd').text('0');
+				break;
+				case 'vol_inc':
+					cmd.find('.iconCmd').text('+');
+				break;
+				case 'vol_dec':
+					cmd.find('.iconCmd').text('-');
+				break;
+				case 'prgm_inc':
+					cmd.find('.iconCmd').text('+');
+				break;
+				case 'prgm_dec':
+					cmd.find('.iconCmd').text('-');
+				break;
+				case 'mute':
+					cmd.find('.iconCmd').html('<img src="plugins/FreeboxMini4k/core/template/images/mute.png" width="20px"/>');
+				break;
+				case 'left':
+					cmd.find('.iconCmd').html('<img src="plugins/FreeboxMini4k/core/template/images/left.png" width="20px"/>');
+				break;
+				case 'right':
+					cmd.find('.iconCmd').html('<img src="plugins/FreeboxMini4k/core/template/images/right.png" width="20px"/>');
+				break;
+				case 'ok':
+					cmd.find('.iconCmd').text('OK');
+				break;
+				case 'green':
+					cmd.find('.iconCmd').html('<img src="plugins/FreeboxMini4k/core/template/images/green.png" width="20px"/>');
+					cmd.find('.iconCmd').css('background-color', 'green', 'important');
+				break;
+				case 'down':
+					cmd.find('.iconCmd').html('<img src="plugins/FreeboxMini4k/core/template/images/down.png" width="20px"/>');
+				break;
+				case 'yellow':
+					cmd.find('.iconCmd').html('<img src="plugins/FreeboxMini4k/core/template/images/yellow.png" width="20px"/>');
+					cmd.find('.iconCmd').css('background-color', 'yellow', 'important');
+				break;
+				case 'play':
+					cmd.find('.iconCmd').html('<img src="plugins/FreeboxMini4k/core/template/images/play_pause.png" width="20px"/>');
+				break;
+				case 'prev':
+					cmd.find('.iconCmd').html('<img src="plugins/FreeboxMini4k/core/template/images/previous.png" width="20px"/>');
+				break;
+				case 'next':
+					cmd.find('.iconCmd').html('<img src="plugins/FreeboxMini4k/core/template/images/next.png" width="20px"/>');
+				break;
+				case 'rec':
+					cmd.find('.iconCmd').html('<img src="plugins/FreeboxMini4k/core/template/images/rec.png" width="20px"/>');
+				break;
+			}
 		}
-	$(".cmd[data-cmd_id=#id#] .action").off();
-	$(".cmd[data-cmd_id=#id#] .action").on("click", function() {
-		jeedom.cmd.execute({id: "#id#"});
-	});
-	switch('#logicalId#'){
-		case 'home':
-			$('.iconCmd#id#').text('Free');
-		break;
-		case 'power':
-			$('.iconCmd#id#').append('<img src="plugins/FreeboxMini4k/core/template/images/power.png" width="20px"/>');
-		break;
-		case 'red':
-			$('.iconCmd#id#').append('<img src="plugins/FreeboxMini4k/core/template/images/red.png" width="20px"/>');
-			$('.iconCmd#id#').css('background-color', 'red', 'important');
-		break;
-		case 'up':
-			$('.iconCmd#id#').append('<img src="plugins/FreeboxMini4k/core/template/images/up.png" width="20px"/>');
-		break;
-		case 'blue':
-			$('.iconCmd#id#').append('<img src="plugins/FreeboxMini4k/core/template/images/blue.png" width="20px"/>');
-			$('.iconCmd#id#').css('background-color', 'blue', 'important');
-		break;
-		case '1':
-			$('.iconCmd#id#').text('1');
-		break;
-		case '2':
-			$('.iconCmd#id#').text('2');
-		break;
-		case '3':
-			$('.iconCmd#id#').text('3');
-		break;
-		case '4':
-			$('.iconCmd#id#').text('4');
-		break;
-		case '5':
-			$('.iconCmd#id#').text('5');
-		break;
-		case '6':
-			$('.iconCmd#id#').text('6');
-		break;
-		case '7':
-			$('.iconCmd#id#').text('7');
-		break;
-		case '8':
-			$('.iconCmd#id#').text('8');
-		break;
-		case '9':
-			$('.iconCmd#id#').text('9');
-		break;
-		case '0':
-			$('.iconCmd#id#').text('0');
-		break;
-		case 'vol_inc':
-			$('.iconCmd#id#').text('+');
-		break;
-		case 'vol_dec':
-			$('.iconCmd#id#').text('-');
-		break;
-		case 'prgm_inc':
-			$('.iconCmd#id#').text('+');
-		break;
-		case 'prgm_dec':
-			$('.iconCmd#id#').text('-');
-		break;
-		case 'mute':
-			$('.iconCmd#id#').append('<img src="plugins/FreeboxMini4k/core/template/images/mute.png" width="20px"/>');
-		break;
-		case 'left':
-			$('.iconCmd#id#').append('<img src="plugins/FreeboxMini4k/core/template/images/left.png" width="20px"/>');
-		break;
-		case 'right':
-			$('.iconCmd#id#').append('<img src="plugins/FreeboxMini4k/core/template/images/right.png" width="20px"/>');
-		break;
-		case 'ok':
-			$('.iconCmd#id#').text('OK');
-		break;
-		case 'green':
-			$('.iconCmd#id#').append('<img src="plugins/FreeboxMini4k/core/template/images/green.png" width="20px"/>');
-			$('.iconCmd#id#').css('background-color', 'green', 'important');
-		break;
-		case 'down':
-			$('.iconCmd#id#').append('<img src="plugins/FreeboxMini4k/core/template/images/down.png" width="20px"/>');
-		break;
-		case 'yellow':
-			$('.iconCmd#id#').append('<img src="plugins/FreeboxMini4k/core/template/images/yellow.png" width="20px"/>');
-			$('.iconCmd#id#').css('background-color', 'yellow', 'important');
-		break;
-		case 'play':
-			$('.iconCmd#id#').append('<img src="plugins/FreeboxMini4k/core/template/images/play_pause.png" width="20px"/>');
-		break;
-		case 'prev':
-			$('.iconCmd#id#').append('<img src="plugins/FreeboxMini4k/core/template/images/previous.png" width="20px"/>');
-		break;
-		case 'next':
-			$('.iconCmd#id#').append('<img src="plugins/FreeboxMini4k/core/template/images/next.png" width="20px"/>');
-		break;
-		case 'rec':
-			$('.iconCmd#id#').append('<img src="plugins/FreeboxMini4k/core/template/images/rec.png" width="20px"/>');
-		break;
-	}
+		jeedom.cmd.update['#id#']({display_value:'#state#',valueDate:'#valueDate#',collectDate:'#collectDate#',alertLevel:'#alertLevel#'});
+		$(".cmd[data-cmd_id=#id#] .action").on("click", function() {
+			jeedom.cmd.execute({id: "#id#"});
+		});
 	</script>
-</span>
+</div>
