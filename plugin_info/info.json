@@ -9,5 +9,6 @@
 	"compatibility" : ["miniplus","smart","rpi","docker","diy","mobile"],
 	"hasOwnDeamon" : true,
 	"hasDependency" : true,
- 	"documentation" : "http://mika-nt28.github.io/Jeedom-FreeboxMini4k/"
+ 	"documentation" : "http://mika-nt28.github.io/Jeedom-FreeboxMini4k/",
+	"changelog" : "https://mika-nt28.github.io/Jeedom-FreeboxMini4k/"
 }
