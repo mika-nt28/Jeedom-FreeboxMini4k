@@ -1,4 +1,4 @@
-<div class="cmd tooltips cmd-widget cursor #history#" data-type="info" data-subtype="binary" data-cmd_id="#id#" data-cmd_uid="#uid#" data-version="#version#" style="min-width:20px;">
+<div class="cmd tooltips cmd-widget cursor #history#" data-type="info" data-subtype="binary" data-cmd_id="#id#" data-cmd_uid="#uid#" data-version="#version#" style="min-width:30px;">
 	<center>
 		<span class="iconCmd"></span>
 	</center>
@@ -7,9 +7,9 @@
 			var cmd = $('.cmd[data-cmd_id=#id#]');
 			cmd.attr('title','Date de valeur : '+_options.valueDate+'<br/>Date de collecte : '+_options.collectDate)
 			if (_options.display_value == '1') {
-				cmd.find('.iconCmd').css('background-color', 'red', 'important');
+				cmd.closest('td').css('background-color', 'red', 'important');
 			} else {
-				cmd.find('.iconCmd').css('background-color', 'transparent', 'important');
+				cmd.closest('td').css('background-color', 'transparent', 'important');
 			}
 			switch('#logicalId#'){
 				case 'home':
@@ -20,14 +20,14 @@
 				break;
 				case 'red':
 					cmd.find('.iconCmd').html('<img src="plugins/FreeboxMini4k/core/template/images/red.png" width="20px"/>');
-					cmd.find('.iconCmd').css('background-color', 'red', 'important');
+					cmd.closest('td').css('background-color', 'red', 'important');
 				break;
 				case 'up':
 					cmd.find('.iconCmd').html('<img src="plugins/FreeboxMini4k/core/template/images/up.png" width="20px"/>');
 				break;
 				case 'blue':
 					cmd.find('.iconCmd').html('<img src="plugins/FreeboxMini4k/core/template/images/blue.png" width="20px"/>');
-					cmd.find('.iconCmd').css('background-color', 'blue', 'important');
+					cmd.closest('td').css('background-color', 'blue', 'important');
 				break;
 				case '1':
 					cmd.find('.iconCmd').text('1');
@@ -85,14 +85,14 @@
 				break;
 				case 'green':
 					cmd.find('.iconCmd').html('<img src="plugins/FreeboxMini4k/core/template/images/green.png" width="20px"/>');
-					cmd.find('.iconCmd').css('background-color', 'green', 'important');
+					cmd.closest('td').css('background-color', 'green', 'important');
 				break;
 				case 'down':
 					cmd.find('.iconCmd').html('<img src="plugins/FreeboxMini4k/core/template/images/down.png" width="20px"/>');
 				break;
 				case 'yellow':
 					cmd.find('.iconCmd').html('<img src="plugins/FreeboxMini4k/core/template/images/yellow.png" width="20px"/>');
-					cmd.find('.iconCmd').css('background-color', 'yellow', 'important');
+					cmd.closest('td').css('background-color', 'yellow', 'important');
 				break;
 				case 'play':
 					cmd.find('.iconCmd').html('<img src="plugins/FreeboxMini4k/core/template/images/play_pause.png" width="20px"/>');
