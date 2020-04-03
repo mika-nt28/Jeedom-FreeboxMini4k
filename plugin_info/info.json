@@ -6,9 +6,9 @@
 	"author" : "Halbout Michael",
 	"require" : "3.0",
 	"category" : "multimedia",
-	"compatibility" : ["miniplus","smart","rpi","docker","diy","mobile"],
+	"compatibility" : ["miniplus","smart","rpi","docker","diy","mobile","v4"],
 	"hasOwnDeamon" : true,
 	"hasDependency" : true,
  	"documentation" : "http://mika-nt28.github.io/Jeedom-FreeboxMini4k/",
-	"changelog" : "https://mika-nt28.github.io/Jeedom-FreeboxMini4k/"
+	"changelog" : "https://mika-nt28.github.io/Documentations/FreeboxMini4k/changelog"
 }
